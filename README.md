@@ -27,6 +27,8 @@ This project uses Python 3.7.2 and the following libraries:
 * [sqlalchemy](https://www.sqlalchemy.org/)
 * [dash](https://plot.ly/dash/)
 
+More informations in `requirements.txt`. To create it I have used `python -m pip freeze > requirements.txt`. To install all Python packages written in the requirements.txt file run `pip install -r requirements.txt`.
+
 ## Data
 
 The dataset is provided by [Figure Eight](https://www.figure-eight.com/dataset/combined-disaster-response-data/) is basically composed by:
