@@ -8,3 +8,13 @@ Include/
 Lib/
 Scripts/
 pyvenv.cfg
+
+# Ignore the jupyter directories
+
+.ipynb_checkpoints/
+share/
+etc/
+
+# Ignore trained classifier file
+
+classifier/trained_classifier.pkl
