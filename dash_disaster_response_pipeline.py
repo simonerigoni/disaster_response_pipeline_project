@@ -57,7 +57,7 @@ def _create_app():
                                     html.Ul(
                                         [
                                             html.Li(html.A('Made with Udacity', href='https://www.udacity.com/'))
-                                            , html.Li(html.A('Github', href='https://github.com/simonerigoni/udacity/tree/master/data_scientist_nanodegree/core_curriculum/term_2/disaster_response_pipeline_project'))
+                                            , html.Li(html.A('Github', href='https://github.com/simonerigoni/disaster_response_pipeline_project'))
                                         ], className = 'nav navbar-nav')
                                 ], className = 'collapse navbar-collapse')
                         ], className = 'container')
