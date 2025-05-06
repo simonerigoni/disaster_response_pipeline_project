@@ -57,7 +57,7 @@ Then I have used these notebooks to write the scripts:
 
 Finally I have developed `disaster_response_pipeline.py` to put everything toghether.
 
-To make the project a bit more intresting I developed also the  dash application `dash_app.py`.
+To make the project a bit more interactive I developed also the  dash application `dash_app.py`.
 
 ## Testing
 
