@@ -126,7 +126,7 @@ def evaluate_model(model, X_test, Y_test, category_names):
     # Calculate the accuracy for each of them.
     for i in range(len(category_names)):
         print('Category: {} '.format(category_names[i]))
-        print(classification_report(Y_test.iloc[:, i].values, Y_pred[:, i]))
+        print(classification_report(Y_test.iloc[:, i].values, Y_pred[:, i], zero_division=0))
         print('Accuracy {}\n\n'.format(accuracy_score(
             Y_test.iloc[:, i].values, Y_pred[:, i])))
 
