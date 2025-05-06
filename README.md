@@ -19,15 +19,23 @@ The goal of this project is to apply the data engineering skills learned in the 
 
 ## Software and Libraries
 
-This project uses Python 3.7.2 and the following libraries:
-* [NumPy](http://www.numpy.org/)
-* [Pandas](http://pandas.pydata.org)
+This project uses Python 3.11.9 and the most important packages are:
+
+- [NumPy](http://www.numpy.org/)
+- [Pandas](http://pandas.pydata.org)
+- [matplotlib](http://matplotlib.org/)
+- [scikit-learn](http://scikit-learn.org/stable/)
 * [nltk](https://www.nltk.org/)
-* [scikit-learn](http://scikit-learn.org/stable/)
 * [sqlalchemy](https://www.sqlalchemy.org/)
 * [dash](https://plot.ly/dash/)
 
-More informations in `requirements.txt`. To create it I have used `python -m pip freeze > requirements.txt`. To install all Python packages written in the requirements.txt file run `pip install -r requirements.txt`.
+To setup a new local enviroment and install all dependencies you can run `.\my_scripts\Set-Up.ps1`
+
+Alternatively to create the virtual enviroment you can run `python -m venv .venv`.
+
+More informations in `requirements.txt`. I am providing a simplified version of the file and letting pip handle the dependencies to avoid maintenance overhead.
+
+To create a complete requirements file you can run `pip freeze > requirements.txt` and to install all python packages in it you can run `pip install -r requirements.txt`.
 
 ## Data
 
@@ -35,33 +43,62 @@ The dataset is provided by [Figure Eight](https://www.figure-eight.com/dataset/c
 * **disaster_categories.csv**: Categories of the messages
 * **disaster_messages.csv**: Multilingual disaster response messages
 
+## Workflow
+
+Following the project instructions I have completed the provided notebooks:
+
+1. `ETL_Pipeline_Preparation.ipynb`
+2. `ML_Pipeline_Preparation.ipynb`
+
+Then I have used these notebooks to write the scripts:
+
+1. `etl_pipeline.py`
+2. `train.py`
+
+Finally I have developed `disaster_response_pipeline.py` to put everything toghether.
+
+To make the project a bit more intresting I developed also the  dash application `dash_app.py`.
+
+## Testing
+
+You can run `.\my_scripts\Test.ps1`.
+
+Alternatively from the project folder run `pytest`
+
+To run a single test: `pytest .\tests\test_config.py::test_dummy`
+
+## Code styling
+
+[PEP8](https://peps.python.org/pep-0008/) is the style guide for Python code, and it's good practice to follow it to ensure your code is readable and consistent.
+
+To check and format my code according to PEP8 I am using:
+- [pycodestyle](https://pypi.org/project/pycodestyle/): tool to check the code against PEP 8 conventions.
+- [autopep8](https://pypi.org/project/autopep8/): tool to automatically format Python code according to PEP 8 standards.
+
+You can run `.\my_scripts\FormatAndLint.ps1`.
+
+Alternatively to run pycodestyle on all files in the project folder and create a report: `pycodestyle --statistics --count . > code_style\report.txt`
+
+To run autopep8 on all files in the project folder: `autopep8 --recursive --in-place .`
+
+I prefere to check and update one file at the time because the previous recursive commands affect also `.\venv\` files. For example:
+
+`pycodestyle .\utils\config.py > .\code_style\config_report.txt`
+
+`autopep8 --in-place .\utils\config.py`
+
 ## Running the code
 
-From the project folder run `python dash_disaster_response_pipeline.py` to start the dash application. The default url to connect to it is http://127.0.0.1:8050/.
+### Console
 
-<pre>
-|-- disaster_response_pipeline_project
-    |-- disaster_response_pipeline
-    |   |-- data
-    |   |   |-- ETL Pipeline Preparation.ipynb
-    |   |   |-- process_data.py    
-    |   |   |-- disaster_categories.csv 
-    |   |   |-- disaster_messages.csv     
-    |   |
-    |   |-- classifier
-    |   |   |-- ML Pipeline Preparation.ipynb
-    |   |   |-- train_classifier.py
-    |   |   |-- trained_classifier.pkl
-    |   |
-    |   |-- disaster_response_pipeline.py
-    |   |-- dash_disaster_response_pipeline.py
-    |
-    |-- db.sqlite3
-    |-- db_dump.txt
-    |-- README.md
-</pre>
+You can run `python disaster_response_pipeline.py`.
 
-If the application does not find the **trained_classifier.pkl** pickle file to load the model it will check also if the database **db.sqlite3** present and if not process the data and finaly train the model (save it in **classifier/trained_classifier.pkl**) to get the application ready to classify messages in real time.
+### Web app
+
+You can run `python dash_app.py` to start the dash application. The default url to connect to it is http://127.0.0.1:8050/.
+
+
+Both the CLI and the web app will perfomr the same steps: if the application does not find the **trained_classifier.pkl** pickle file to load the model it will check also if the database **db.sqlite3** present and if not process the data and finaly train the model (save it in **trained_classifier.pkl**) to get the application ready to classify messages in real time.
 
 ![Flowchart](images/flowchart.png)
 
@@ -99,7 +136,7 @@ When a messagge is submitted with the **Classify Message** button the resulting 
 
 As shown in the **Overview of Training Dataset** section the dataset is highly imbalanced and that is the reason why the accuracy is high and the recall value is pretty low. To tackle and imbalanced dataset there are a lot of ways as shown in this really intresting [post](https://medium.com/james-blogs/handling-imbalanced-data-in-classification-problems-7de598c1059f)
 
-|		 	      Category | Precision | Accuracy | Recall | F1-score | Support |
+|		 	   Category | Precision | Accuracy | Recall | F1-score | Support |
 | --------------------- | --------- | -------- | ------ | -------- | ------- |
 |               related |    0.83   |   0.79   |  0.37  |   0.51   |   1123  |
 |               request |    0.00   |   0.87   |  0.00  |   0.00   |     30  |
@@ -138,8 +175,14 @@ As shown in the **Overview of Training Dataset** section the dataset is highly i
 |         other_weather |    0.82   |   0.95   |  0.31  |   0.45   |   1293  |
 |           avg / total |    0.72   |   0.93   |  0.29  |   0.39   |  15679  |
 
-Results are better explained in this [blog post](https://medium.com/@simone.rigoni01/disaster-response-pipeline-with-figure-eight-a0addd696352)
+## List of activities
 
-## Licensing and Acknowledgements
+In the [TODO](TODO.md) file you can find the list of tasks and on going activities.
 
-Thank you [Figure Eight](https://www.figure-eight.com/) for the datasets and more information about the licensing of the data can be find [here](https://www.figure-eight.com/datasets/).
+## Licensing and acknowledgements
+
+Have a look at [LICENSE](LICENSE.md) and many thanks to [Figure Eight](https://www.figure-eight.com/) for the datasets and more information about its licensing can be find [here](https://www.figure-eight.com/datasets/).
+
+## Outro
+
+I hope this repository was interesting and thank you for taking the time to check it out. On my Medium you can find a more in depth [story](https://medium.com/@simone-rigoni01/disaster-response-pipeline-with-figure-eight-a0addd696352) and on my Blogspot you can find the same [post](https://simonerigoni01.blogspot.com/) in italian. Let me know if you have any question and if you like the content that I create feel free to [buy me a coffee](https://www.buymeacoffee.com/simonerigoni).

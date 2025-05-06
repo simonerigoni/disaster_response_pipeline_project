@@ -20,6 +20,7 @@ logs/
 ## Code style reports
 code_style/
 
-# Ignore trained classifier file
-
-classifier/trained_classifier.pkl
+## Ignore big files
+data/trained_classifier.pkl
+data/db.sqlite3
+data/db_dump.txt
