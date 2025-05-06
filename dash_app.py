@@ -49,7 +49,7 @@ def _create_app():
                             dash.html.Div(
                                 [
                                     dash.html.A('Disaster Response Pipeline Project',
-                                           href='/', className='navbar-brand')
+                                                href='/', className='navbar-brand')
                                 ], className='navbar-header'), dash.html.Div(
                                 [
                                     dash.html.Ul(
