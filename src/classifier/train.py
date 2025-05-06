@@ -92,7 +92,7 @@ def build_model(grid_search_cv=False):
     Returns:
         pipeline (pipeline.Pipeline): model
     '''
-    pipeline = Pipeline([('vect', CountVectorizer(tokenizer=my_tokenizer)),
+    pipeline = Pipeline([('vect', CountVectorizer(tokenizer=my_tokenizer, token_pattern=None)),
                          ('tfidf', TfidfTransformer()),
                          ('clf', MultiOutputClassifier(RandomForestClassifier()))
                          ])
