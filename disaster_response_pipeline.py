@@ -6,12 +6,12 @@ import os
 import argparse
 
 
-import src.config as conf
+from src.config import DATABASE_FILENAME, MESSAGES_FILENAME, CATEGORIES_FILENAME, MODEL_PICKLE_FILENAME, DEFAULT_TEST_MESSAGE
 import src.classifier.train as train_classifier
 import src.data_preparation.etl_pipeline as etl_pipeline
 
 
-def get_category_names(database_filename=conf.DATABASE_FILENAME):
+def get_category_names(database_filename=DATABASE_FILENAME):
     '''
     Return category names
 
@@ -25,7 +25,7 @@ def get_category_names(database_filename=conf.DATABASE_FILENAME):
     return list(df.columns[4:])
 
 
-def get_genre_distribution(database_filename=conf.DATABASE_FILENAME):
+def get_genre_distribution(database_filename=DATABASE_FILENAME):
     '''
     Return message genre distribution
 
@@ -39,7 +39,7 @@ def get_genre_distribution(database_filename=conf.DATABASE_FILENAME):
     return df.groupby('genre').count()['message'].to_dict()
 
 
-def get_top_n_categories(database_filename=conf.DATABASE_FILENAME, n=0):
+def get_top_n_categories(database_filename=DATABASE_FILENAME, n=0):
     '''
     Return the top n message categories
 
@@ -66,11 +66,11 @@ def get_predicted_category_names(category_predicted):
     Returns:
         predicted_category_names (list): list of predicted category names
     '''
-    category_names = get_category_names(conf.DATABASE_FILENAME)
+    category_names = get_category_names(DATABASE_FILENAME)
     return [category_names[i] for i in range(len(category_predicted)) if category_predicted[i] == 1]
 
 
-def load_pipeline(categories_filename=conf.CATEGORIES_FILENAME, messages_filename=conf.MESSAGES_FILENAME, database_filename=conf.DATABASE_FILENAME, model_pickle_filename=conf.MODEL_PICKLE_FILENAME):
+def load_pipeline(categories_filename=CATEGORIES_FILENAME, messages_filename=MESSAGES_FILENAME, database_filename=DATABASE_FILENAME, model_pickle_filename=MODEL_PICKLE_FILENAME):
     '''
     Return an istance of the model created. If the model pickle file is not present the model will be trained and the file cretaed. There is also a check if the 
     training datataset is available. If not the processing of the data will be performed and saved into the database to allow to train the model
@@ -87,7 +87,7 @@ def load_pipeline(categories_filename=conf.CATEGORIES_FILENAME, messages_filenam
     print('Check if model present...\n    Model: {}'.format(model_pickle_filename))
     if os.path.isfile(model_pickle_filename) == False:
         print('Not present. Training the model...\nCheck if data are in database...')
-        if os.path.isfile(conf.DATABASE_FILENAME) == False:
+        if os.path.isfile(DATABASE_FILENAME) == False:
             etl_pipeline.process(
                 messages_filename=messages_filename, categories_filename=categories_filename, database_filename=database_filename)
 
@@ -111,7 +111,7 @@ def parse_input_arguments():
     '''
     parser = argparse.ArgumentParser(description="Disaster Response Pipeline")
     parser.add_argument('--message', type=str,
-                        default=conf.DEFAULT_TEST_MESSAGE, help='Message to classify')
+                        default=DEFAULT_TEST_MESSAGE, help='Message to classify')
     args = parser.parse_args()
     # print(args)
     return args.message

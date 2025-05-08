@@ -20,10 +20,10 @@ import pickle
 import argparse
 
 
-import src.config as conf
+from src.config import DATABASE_FILENAME, TABLE_NAME, MODEL_PICKLE_FILENAME
 
 
-def get_df_from_database(database_filename=conf.DATABASE_FILENAME):
+def get_df_from_database(database_filename=DATABASE_FILENAME):
     '''
     Return dataframe from the database
 
@@ -34,7 +34,7 @@ def get_df_from_database(database_filename=conf.DATABASE_FILENAME):
         df (pandas.DataFrame): dataframe containing the data 
     '''
     engine = create_engine('sqlite:///' + database_filename)
-    return pd.read_sql_table(conf.TABLE_NAME, engine)
+    return pd.read_sql_table(TABLE_NAME, engine)
 
 
 def load_data(database_filename):
@@ -174,9 +174,9 @@ def parse_input_arguments():
     parser = argparse.ArgumentParser(
         description="Disaster Response Pipeline Train Classifier")
     parser.add_argument('--database_filename', type=str,
-                        default=conf.DATABASE_FILENAME, help='Database filename of the cleaned data')
+                        default=DATABASE_FILENAME, help='Database filename of the cleaned data')
     parser.add_argument('--model_pickle_filename', type=str,
-                        default=conf.MODEL_PICKLE_FILENAME, help='Pickle filename to save the model')
+                        default=MODEL_PICKLE_FILENAME, help='Pickle filename to save the model')
     parser.add_argument('--grid_search_cv', action="store_true",
                         default=False, help='Perform grid search of the parameters')
     args = parser.parse_args()

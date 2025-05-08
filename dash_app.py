@@ -67,7 +67,7 @@ def _create_app():
                                 [
                                     dash.html.Div(
                                         [
-                                            dash.dash.dcc.Input(id='input-message', type='text', value='', placeholder='Enter a message to classify', maxLength=MAX_INPUT_LENGTH, className='form-control form-control-lg'), dash.html.Hr(), dash.html.Div(
+                                            dash.dcc.Input(id='input-message', type='text', value='', placeholder='Enter a message to classify', maxLength=MAX_INPUT_LENGTH, className='form-control form-control-lg'), dash.html.Hr(), dash.html.Div(
                                                 [
                                                     dash.html.Button(
                                                         'Classify Message', id='button-submit', className='btn btn-lg btn-success')

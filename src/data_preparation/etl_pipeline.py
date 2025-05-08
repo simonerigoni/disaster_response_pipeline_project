@@ -8,7 +8,7 @@ from sqlalchemy import create_engine
 import argparse
 
 
-import src.config as conf
+from src.config import DATABASE_FILENAME, TABLE_NAME, MESSAGES_FILENAME, CATEGORIES_FILENAME
 
 
 def load_data(messages_filename, categories_filename):
@@ -70,7 +70,7 @@ def save_data(df, database_filename):
         database_filename (str): database filename
     '''
     engine = create_engine('sqlite:///' + database_filename)
-    df.to_sql(conf.TABLE_NAME, engine, index=False, if_exists='replace')
+    df.to_sql(TABLE_NAME, engine, index=False, if_exists='replace')
 
 
 def parse_input_arguments():
@@ -85,10 +85,10 @@ def parse_input_arguments():
     parser = argparse.ArgumentParser(
         description="Disaster Response Pipeline Process Data")
     parser.add_argument('--messages_filename', type=str,
-                        default=conf.MESSAGES_FILENAME, help='Messages dataset filename')
+                        default=MESSAGES_FILENAME, help='Messages dataset filename')
     parser.add_argument('--categories_filename', type=str,
-                        default=conf.CATEGORIES_FILENAME, help='Categories dataset filename')
-    parser.add_argument('--database_filename', type=str, default=conf.DATABASE_FILENAME,
+                        default=CATEGORIES_FILENAME, help='Categories dataset filename')
+    parser.add_argument('--database_filename', type=str, default=DATABASE_FILENAME,
                         help='Database filename to save cleaned data')
     args = parser.parse_args()
     # print(args)
