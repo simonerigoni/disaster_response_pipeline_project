@@ -25,9 +25,9 @@ This project uses Python 3.11.9 and the most important packages are:
 - [Pandas](http://pandas.pydata.org)
 - [matplotlib](http://matplotlib.org/)
 - [scikit-learn](http://scikit-learn.org/stable/)
-* [nltk](https://www.nltk.org/)
-* [sqlalchemy](https://www.sqlalchemy.org/)
-* [dash](https://plot.ly/dash/)
+- [nltk](https://www.nltk.org/)
+- [sqlalchemy](https://www.sqlalchemy.org/)
+- [dash](https://plot.ly/dash/)
 
 To setup a new local enviroment and install all dependencies you can run `.\my_scripts\Set-Up.ps1`
 
