@@ -1,11 +1,10 @@
 # Disaster Response Pipeline Project
 
-## Introduction
+## TODO
 
 Overview of the status of the tasks of this project.
 
 ## Tasks
-
 
 ### To do
 
@@ -24,3 +23,4 @@ Overview of the status of the tasks of this project.
 - [x] Refine requirment.txt
 - [x] Add my_scripts/*.ps1
 - [x] Big refactor
+- [x] Use uv and pre-commit

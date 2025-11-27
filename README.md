@@ -3,6 +3,7 @@
 ## Introduction
 
 This project is part of The [Udacity](https://eu.udacity.com/) Data Scientist Nanodegree Program which is composed by:
+
 * Term 1
     * Supervised Learning
     * Deep Learning
@@ -13,37 +14,44 @@ This project is part of The [Udacity](https://eu.udacity.com/) Data Scientist Na
     * Recommendation Engines
 
 The goal of this project is to apply the data engineering skills learned in the course to analyze disaster data from [Figure Eight](https://www.figure-eight.com/) to build a model for an API that classifies disaster messages. The project is divided in three sections:
+
 * **Data Processing**: build an ETL (Extract, Transform, and Load) Pipeline to extract data from the given dataset, clean the data, and then store it in a SQLite database
 * **Machine Learning Pipeline**: split the data into a training set and a test set. Then, create a machine learning pipeline that uses NLTK, as well as scikit-learn's Pipeline and GridSearchCV to output a final model that predicts a message classifications for the 36 categories (multi-output classification)
 * **Web development** develop a web application to show classify messages in real time
 
 ## Software and Libraries
 
-This project uses Python 3.11.9 and the most important packages are:
+This project uses Python 3.11 and the most important packages are:
 
-- [NumPy](http://www.numpy.org/)
-- [Pandas](http://pandas.pydata.org)
-- [matplotlib](http://matplotlib.org/)
-- [scikit-learn](http://scikit-learn.org/stable/)
-- [nltk](https://www.nltk.org/)
-- [sqlalchemy](https://www.sqlalchemy.org/)
-- [dash](https://plot.ly/dash/)
+* [NumPy](http://www.numpy.org/)
+* [Pandas](http://pandas.pydata.org)
+* [matplotlib](http://matplotlib.org/)
+* [scikit-learn](http://scikit-learn.org/stable/)
+* [nltk](https://www.nltk.org/)
+* [sqlalchemy](https://www.sqlalchemy.org/)
+* [dash](https://plot.ly/dash/)
 
-To setup a new local enviroment and install all dependencies you can run `.\my_scripts\Set-Up.ps1`
+## Local configuration
 
-Alternatively to create the virtual enviroment you can run `python -m venv .venv`.
+To setup a new local enviroment and install all dependencies you can run `.\my_scripts\Set-Up.ps1`. It will install:
 
-More informations in `requirements.txt`. I am providing a simplified version of the file and letting pip handle the dependencies to avoid maintenance overhead.
+* [Python](https://www.python.org/)
+* [uv](https://docs.astral.sh/uv/)
+* [Pre-commit](https://pre-commit.com/)
 
-To create a complete requirements file you can run `pip freeze > requirements.txt` and to install all python packages in it you can run `pip install -r requirements.txt`.
+Pre-commit is a framework for managing and maintaining multi-language pre-commit hooks. A pre-commit hook is a script that runs before a commit operation in a version control system. This allows to shift left code quality checks and remediations. You can change the hooks by updateing the file `.pre-commit-config.yaml`.
+
+To trigger the pre-commit hooks without an actual commit you can run `pre-commit run --all-files -v`.
 
 ## Data
 
-The dataset is provided by [Figure Eight](https://www.figure-eight.com/dataset/combined-disaster-response-data/) is basically composed by:
-* **disaster_categories.csv**: Categories of the messages
-* **disaster_messages.csv**: Multilingual disaster response messages
+Have a look at the `data` folder and its [DATA.md](data/DATA.md) file.
 
-## Workflow
+## Testing
+
+No test implemented.
+
+## Running the code
 
 Following the project instructions I have completed the provided notebooks:
 
@@ -59,36 +67,6 @@ Finally I have developed `disaster_response_pipeline.py` to put everything toghe
 
 To make the project a bit more interactive I developed also the  dash application `dash_app.py`.
 
-## Testing
-
-You can run `.\my_scripts\Test.ps1`.
-
-Alternatively from the project folder run `pytest`
-
-To run a single test: `pytest .\tests\test_config.py::test_dummy`
-
-## Code styling
-
-[PEP8](https://peps.python.org/pep-0008/) is the style guide for Python code, and it's good practice to follow it to ensure your code is readable and consistent.
-
-To check and format my code according to PEP8 I am using:
-- [pycodestyle](https://pypi.org/project/pycodestyle/): tool to check the code against PEP 8 conventions.
-- [autopep8](https://pypi.org/project/autopep8/): tool to automatically format Python code according to PEP 8 standards.
-
-You can run `.\my_scripts\FormatAndLint.ps1`.
-
-Alternatively to run pycodestyle on all files in the project folder and create a report: `pycodestyle --statistics --count . > code_style\report.txt`
-
-To run autopep8 on all files in the project folder: `autopep8 --recursive --in-place .`
-
-I prefere to check and update one file at the time because the previous recursive commands affect also `.\venv\` files. For example:
-
-`pycodestyle .\utils\config.py > .\code_style\config_report.txt`
-
-`autopep8 --in-place .\utils\config.py`
-
-## Running the code
-
 ### Console
 
 You can run `python disaster_response_pipeline.py`.
@@ -96,7 +74,6 @@ You can run `python disaster_response_pipeline.py`.
 ### Web app
 
 You can run `python dash_app.py` to start the dash application. The default url to connect to it is http://127.0.0.1:8050/.
-
 
 Both the CLI and the web app will perfomr the same steps: if the application does not find the **trained_classifier.pkl** pickle file to load the model it will check also if the database **db.sqlite3** present and if not process the data and finaly train the model (save it in **trained_classifier.pkl**) to get the application ready to classify messages in real time.
 
@@ -177,11 +154,11 @@ As shown in the **Overview of Training Dataset** section the dataset is highly i
 
 ## List of activities
 
-In the [TODO](TODO.md) file you can find the list of tasks and on going activities.
+In the [TODO.md](TODO.md) file you can find the list of tasks and on going activities.
 
 ## Licensing and acknowledgements
 
-Have a look at [LICENSE](LICENSE.md) and many thanks to [Figure Eight](https://www.figure-eight.com/) for the datasets and more information about its licensing can be find [here](https://www.figure-eight.com/datasets/).
+Have a look at [LICENSE.md](LICENSE.md) and many thanks to [Figure Eight](https://www.figure-eight.com/) for the datasets and more information about its licensing can be find [here](https://www.figure-eight.com/datasets/).
 
 ## Outro
 
