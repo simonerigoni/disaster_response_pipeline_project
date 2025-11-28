@@ -15,7 +15,7 @@ Overview of the status of the tasks of this project.
 
 ### In Progress
 
-- [ ]
+- [ ] None
 
 ### Done ✓
 
