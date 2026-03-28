@@ -15,11 +15,10 @@ temp/
 # Ruff cache
 .ruff_cache/
 
-# uv stuff
-.python-version
-uv.lock
-
 # Big files
 data/trained_classifier.pkl
 data/db.sqlite3
 data/db_dump.txt
+
+# pytest-cov stuff
+.coverage
