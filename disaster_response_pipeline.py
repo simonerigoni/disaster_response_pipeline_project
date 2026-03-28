@@ -73,11 +73,7 @@ def get_predicted_category_names(category_predicted):
         predicted_category_names (list): list of predicted category names
     """
     category_names = get_category_names(DATABASE_FILENAME)
-    return [
-        category_names[i]
-        for i in range(len(category_predicted))
-        if category_predicted[i] == 1
-    ]
+    return [category_names[i] for i in range(len(category_predicted)) if category_predicted[i] == 1]
 
 
 def load_pipeline(

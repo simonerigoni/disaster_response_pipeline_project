@@ -66,9 +66,7 @@ def my_tokenizer(text):
     Returns:
         clean_tokens (list): tokens obtained from the input text
     """
-    url_regex = (
-        "http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+"  # type: ignore
-    )
+    url_regex = "http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+"  # type: ignore
     detected_urls = re.findall(url_regex, text)
     for url in detected_urls:
         text = text.replace(url, "urlplaceholder")
@@ -136,16 +134,8 @@ def evaluate_model(model, X_test, Y_test, category_names):
     # Calculate the accuracy for each of them.
     for i in range(len(category_names)):
         print("Category: {} ".format(category_names[i]))
-        print(
-            classification_report(
-                Y_test.iloc[:, i].values, Y_pred[:, i], zero_division="0"
-            )
-        )
-        print(
-            "Accuracy {}\n\n".format(
-                accuracy_score(Y_test.iloc[:, i].values, Y_pred[:, i])
-            )
-        )
+        print(classification_report(Y_test.iloc[:, i].values, Y_pred[:, i], zero_division="0"))
+        print("Accuracy {}\n\n".format(accuracy_score(Y_test.iloc[:, i].values, Y_pred[:, i])))
 
 
 def save_model(model, model_filename):
@@ -187,9 +177,7 @@ def parse_input_arguments():
         model_pickle_filename (str): pickle filename. Default value MODEL_PICKLE_FILENAME
         grid_search_cv (bool): If True perform grid search of the parameters
     """
-    parser = argparse.ArgumentParser(
-        description="Disaster Response Pipeline Train Classifier"
-    )
+    parser = argparse.ArgumentParser(description="Disaster Response Pipeline Train Classifier")
     parser.add_argument(
         "--database_filename",
         type=str,

@@ -156,10 +156,8 @@ def _create_app():
         results = []
         if len(message) > 0:  # and int(0 if n_click is None else n_click) > 0:
             category_predicted = model.predict([message])[0]
-            name_category_predicted = (
-                disaster_response_pipeline.get_predicted_category_names(
-                    category_predicted
-                )
+            name_category_predicted = disaster_response_pipeline.get_predicted_category_names(
+                category_predicted
             )
             print("Message to be classified: {}".format(message))
             print("Categories:")
@@ -200,9 +198,7 @@ def _create_app():
             results.append(
                 dash.html.Div(
                     [
-                        dash.html.H2(
-                            "Overview of Training Dataset", className="text-center"
-                        ),
+                        dash.html.H2("Overview of Training Dataset", className="text-center"),
                         dash.dcc.Graph(
                             figure=go.Figure(
                                 data=[

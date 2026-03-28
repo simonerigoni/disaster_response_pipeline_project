@@ -87,9 +87,7 @@ def parse_input_arguments():
         messages_filename (str): messages filename. Default value MESSAGES_FILENAME
         database_filename (str): database filename. Default value DATABASE_FILENAME
     """
-    parser = argparse.ArgumentParser(
-        description="Disaster Response Pipeline Process Data"
-    )
+    parser = argparse.ArgumentParser(description="Disaster Response Pipeline Process Data")
     parser.add_argument(
         "--messages_filename",
         type=str,
