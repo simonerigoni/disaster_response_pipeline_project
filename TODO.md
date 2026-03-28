@@ -8,6 +8,7 @@ Overview of the status of the tasks of this project.
 
 ### To do
 
+- [ ] Use src layout
 - [ ] Add tests to test_train.py
 - [ ] Add tests to test_etl_pipeline.py
 - [ ] Add tests to test_disaster_response_pipeline.py
