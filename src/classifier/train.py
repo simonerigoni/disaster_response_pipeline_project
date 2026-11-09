@@ -66,7 +66,7 @@ def my_tokenizer(text):
     Returns:
         clean_tokens (list): tokens obtained from the input text
     """
-    url_regex = "http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+"  # type: ignore
+    url_regex = r"http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+"  # type: ignore
     detected_urls = re.findall(url_regex, text)
     for url in detected_urls:
         text = text.replace(url, "urlplaceholder")
