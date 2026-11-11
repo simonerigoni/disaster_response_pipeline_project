@@ -177,4 +177,4 @@ Have a look at [LICENSE.md](LICENSE.md) and many thanks to [Figure Eight](https:
 
 ## Outro
 
-I hope this repository was interesting and thank you for taking the time to check it out. On my Medium you can find a more in depth [story](https://simone-rigoni01.medium.com/disaster-response-pipeline-with-figure-eight-a0addd696352) and on my Blogspot you can find the same [post](https://simonerigoni01.blogspot.com/) in italian. Let me know if you have any question and if you like the content that I create feel free to [buy me a coffee](https://www.buymeacoffee.com/simonerigoni).
+I hope this repository was interesting and thank you for taking the time to check it out. On my Medium you can find a more in depth [story](https://simone-rigoni01.medium.com/disaster-response-pipeline-with-figure-eight-a0addd696352) and on my Blogspot you can find the same [post](https://simonerigoni01.blogspot.com/2026/11/pipeline-di-risposta-alle-catastrofi.html) in italian. Let me know if you have any question and if you like the content that I create feel free to [buy me a coffee](https://www.buymeacoffee.com/simonerigoni).
