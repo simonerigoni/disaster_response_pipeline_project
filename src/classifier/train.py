@@ -3,24 +3,23 @@
 # python -m src.classifier.train --database_filename data/db.sqlite3 --model_pickle_filename data/trained_classifier.pkl --grid_search_cv
 
 
-import pandas as pd
-from sqlalchemy import create_engine
-from sklearn.model_selection import train_test_split
-from sklearn.pipeline import Pipeline
-from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
-from sklearn.multioutput import MultiOutputClassifier
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import classification_report, accuracy_score
-import re
-import nltk
-from nltk.tokenize import word_tokenize
-from nltk.stem import WordNetLemmatizer
-from sklearn.model_selection import GridSearchCV
-import pickle
 import argparse
+import pickle
+import re
 
+import nltk
+import pandas as pd
+from nltk.stem import WordNetLemmatizer
+from nltk.tokenize import word_tokenize
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
+from sklearn.metrics import accuracy_score, classification_report
+from sklearn.model_selection import GridSearchCV, train_test_split
+from sklearn.multioutput import MultiOutputClassifier
+from sklearn.pipeline import Pipeline
+from sqlalchemy import create_engine
 
-from src.config import DATABASE_FILENAME, TABLE_NAME, MODEL_PICKLE_FILENAME
+from src.config import DATABASE_FILENAME, MODEL_PICKLE_FILENAME, TABLE_NAME
 
 
 def get_df_from_database(database_filename=DATABASE_FILENAME):
@@ -133,9 +132,9 @@ def evaluate_model(model, X_test, Y_test, category_names):
     Y_pred = model.predict(X_test)
     # Calculate the accuracy for each of them.
     for i in range(len(category_names)):
-        print("Category: {} ".format(category_names[i]))
+        print(f"Category: {category_names[i]} ")
         print(classification_report(Y_test.iloc[:, i].values, Y_pred[:, i], zero_division="0"))
-        print("Accuracy {}\n\n".format(accuracy_score(Y_test.iloc[:, i].values, Y_pred[:, i])))
+        print(f"Accuracy {accuracy_score(Y_test.iloc[:, i].values, Y_pred[:, i])}\n\n")
 
 
 def save_model(model, model_filename):
@@ -221,7 +220,7 @@ def train(database_filename, model_pickle_filename, grid_search_cv=False):
     print("Download nltk componets if needed...")
     nltk.download(["punkt", "punkt_tab", "wordnet"])
 
-    print("Loading data...\n    Database: {}".format(database_filename))
+    print(f"Loading data...\n    Database: {database_filename}")
     X, Y, category_names = load_data(database_filename)
     X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2)
 
@@ -234,7 +233,7 @@ def train(database_filename, model_pickle_filename, grid_search_cv=False):
     print("Evaluating model...")
     evaluate_model(model, X_test, Y_test, category_names)
 
-    print("Saving model...\n    Model: {}".format(model_pickle_filename))
+    print(f"Saving model...\n    Model: {model_pickle_filename}")
     save_model(model, model_pickle_filename)
 
     print("Trained model saved!")
