@@ -2,19 +2,18 @@
 #
 # python disaster_response_pipeline.py
 
-import os
 import argparse
+import os
 
-
-from src.config import (
-    DATABASE_FILENAME,
-    MESSAGES_FILENAME,
-    CATEGORIES_FILENAME,
-    MODEL_PICKLE_FILENAME,
-    DEFAULT_TEST_MESSAGE,
-)
 import src.classifier.train as train_classifier
 import src.data_preparation.etl_pipeline as etl_pipeline
+from src.config import (
+    CATEGORIES_FILENAME,
+    DATABASE_FILENAME,
+    DEFAULT_TEST_MESSAGE,
+    MESSAGES_FILENAME,
+    MODEL_PICKLE_FILENAME,
+)
 
 
 def get_category_names(database_filename=DATABASE_FILENAME):
@@ -95,7 +94,7 @@ def load_pipeline(
     Returns:
         model (pipeline.Pipeline): model loaded
     """
-    print("Check if model present...\n    Model: {}".format(model_pickle_filename))
+    print(f"Check if model present...\n    Model: {model_pickle_filename}")
     if os.path.isfile(model_pickle_filename) is False:
         print("Not present. Training the model...\nCheck if data are in database...")
         if os.path.isfile(DATABASE_FILENAME) is False:
@@ -112,7 +111,7 @@ def load_pipeline(
     else:
         print("Ok")
 
-    print("Loading model...\n    Model: {}".format(model_pickle_filename))
+    print(f"Loading model...\n    Model: {model_pickle_filename}")
     model = train_classifier.load_model(model_pickle_filename)
     return model
 
@@ -138,7 +137,7 @@ if __name__ == "__main__":
     message = parse_input_arguments()
     model = load_pipeline()
     category_predicted = model.predict([message])[0]
-    print("Message to classify: {}\nCategories:".format(message))
+    print(f"Message to classify: {message}\nCategories:")
     print(get_predicted_category_names(category_predicted))
 else:
     pass

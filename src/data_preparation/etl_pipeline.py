@@ -3,16 +3,16 @@
 # python -m src.data_preparation.etl_pipeline --messages_filename data/disaster_messages.csv --categories_filename data/disaster_categories.csv --database_filename data/db.sqlite3
 
 
-import pandas as pd
-from sqlalchemy import create_engine
 import argparse
 
+import pandas as pd
+from sqlalchemy import create_engine
 
 from src.config import (
-    DATABASE_FILENAME,
-    TABLE_NAME,
-    MESSAGES_FILENAME,
     CATEGORIES_FILENAME,
+    DATABASE_FILENAME,
+    MESSAGES_FILENAME,
+    TABLE_NAME,
 )
 
 
@@ -126,16 +126,14 @@ def process(messages_filename, categories_filename, database_filename):
     # print(os.getcwd())
 
     print(
-        "Loading data...\n    Messages: {}\n    Categories: {}".format(
-            messages_filename, categories_filename
-        )
+        f"Loading data...\n    Messages: {messages_filename}\n    Categories: {categories_filename}"
     )
     df = load_data(messages_filename, categories_filename)
 
     print("Cleaning data...")
     df = clean_data(df)
 
-    print("Saving data...\n    Database: {}".format(database_filename))
+    print(f"Saving data...\n    Database: {database_filename}")
     save_data(df, database_filename)
 
     print("Cleaned data saved to database!")

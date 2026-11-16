@@ -6,8 +6,8 @@
 import dash
 import dash_bootstrap_components as dbc
 import plotly.graph_objs as go
-import disaster_response_pipeline
 
+import disaster_response_pipeline
 
 MAX_INPUT_LENGTH = 512
 EXTERNAL_STYLESHEETS = [
@@ -159,14 +159,14 @@ def _create_app():
             name_category_predicted = disaster_response_pipeline.get_predicted_category_names(
                 category_predicted
             )
-            print("Message to be classified: {}".format(message))
+            print(f"Message to be classified: {message}")
             print("Categories:")
             print(name_category_predicted)
             results.append(
                 dash.html.Div(
                     [
                         dash.html.H2("Results", className="text-center"),
-                        dash.html.H3("Message to be classified: {}".format(message)),
+                        dash.html.H3(f"Message to be classified: {message}"),
                         dash.html.H3("Categories", className="text-center"),
                         # , dash.html.H3(', '.join(disaster_response_pipeline.get_predicted_category_names(category_predicted)))
                         # , dash.html.Ul(
