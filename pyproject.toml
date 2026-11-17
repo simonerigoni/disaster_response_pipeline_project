@@ -4,6 +4,9 @@ version = "0.1.0"
 description = "Disaster Response Pipeline Project"
 readme = "README.md"
 requires-python = ">=3.15"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE.md"]
+authors = [{ name = "Simone Rigoni" }]
 dependencies = [
     "dash-bootstrap-components>=2.0.4",
     "dash>=3.3.0",
@@ -13,6 +16,13 @@ dependencies = [
     "scikit-learn>=1.7.2",
     "sqlalchemy>=2.0.44",
 ]
+
+
+[project.urls]
+Repository = "https://github.com/simonerigoni/disaster_response_pipeline_project"
+Website = "https://www.simonerigoni.net/blog/disaster-response-pipeline-with-figure-eight"
+Medium = "https://medium.com/@simone-rigoni01/disaster-response-pipeline-with-figure-eight-a0addd696352"
+Blogspot = "https://simonerigoni01.blogspot.com/2027/01/pipeline-di-risposta-alle-catastrofi.html"
 
 [dependency-groups]
 dev = [
