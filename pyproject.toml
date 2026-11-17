@@ -4,6 +4,9 @@ version = "0.1.0"
 description = "Disaster Response Pipeline Project"
 readme = "README.md"
 requires-python = ">=3.15"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE.md"]
+authors = [{ name = "Simone Rigoni" }]
 dependencies = [
     "dash-bootstrap-components>=2.0.4",
     "dash>=3.3.0",
@@ -13,6 +16,11 @@ dependencies = [
     "scikit-learn>=1.7.2",
     "sqlalchemy>=2.0.44",
 ]
+
+
+[project.urls]
+Homepage = "https://github.com/simonerigoni/disaster_response_pipeline_project"
+Repository = "https://github.com/simonerigoni/disaster_response_pipeline_project"
 
 [dependency-groups]
 dev = [
