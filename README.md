@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This project is part of The [Udacity](https://eu.udacity.com/) Data Scientist Nanodegree Program which is composed by:
+This project is part of The [Udacity](https://www.udacity.com/) Data Scientist Nanodegree Program which is composed by:
 
 * Term 1
     * Supervised Learning
@@ -178,8 +178,8 @@ In the [TODO.md](TODO.md) file you can find the list of tasks and ongoing activi
 
 ## Licensing and acknowledgements
 
-Have a look at [LICENSE.md](LICENSE.md) and many thanks to [Figure Eight](https://www.figure-eight.com/) for the datasets and more information about its licensing can be find [here](https://www.figure-eight.com/datasets/).
+Have a look at [LICENSE.md](LICENSE.md) and many thanks to [Figure Eight](https://www.figure-eight.com/) for the datasets and more information about its licensing can be find [here](https://web.archive.org/web/20200313080346/https://www.figure-eight.com/datasets/).
 
 ## Outro
 
-I hope this repository was interesting and thank you for taking the time to check it out. On my Medium you can find a more in depth [story](https://medium.com/@simone-rigoni01/disaster-response-pipeline-with-figure-eight-a0addd696352) and on my Blogspot you can find the same [post](https://simonerigoni01.blogspot.com/2027/01/pipeline-di-risposta-alle-catastrofi.html) in Italian. Let me know if you have any question and if you like the content that I create feel free to [buy me a coffee](https://www.buymeacoffee.com/simonerigoni).
+I hope this repository was interesting and thank you for taking the time to check it out. On my Medium you can find a more in depth [story](https://medium.com/@simone-rigoni01/disaster-response-pipeline-with-figure-eight-a0addd696352). Let me know if you have any question and if you like the content that I create feel free to [buy me a coffee](https://www.buymeacoffee.com/simonerigoni).
