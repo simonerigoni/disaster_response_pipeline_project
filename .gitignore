@@ -22,3 +22,4 @@ data/db_dump.txt
 
 # pytest-cov stuff
 .coverage
+COVERAGE.md
