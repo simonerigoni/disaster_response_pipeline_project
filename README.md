@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This project is part of The [Udacity](https://eu.udacity.com/) Data Scientist Nanodegree Program which is composed by:
+This project is part of The [Udacity](https://www.udacity.com/) Data Scientist Nanodegree Program which is composed by:
 
 * Term 1
     * Supervised Learning
@@ -178,7 +178,7 @@ In the [TODO.md](TODO.md) file you can find the list of tasks and ongoing activi
 
 ## Licensing and acknowledgements
 
-Have a look at [LICENSE.md](LICENSE.md) and many thanks to [Figure Eight](https://www.figure-eight.com/) for the datasets and more information about its licensing can be find [here](https://www.figure-eight.com/datasets/).
+Have a look at [LICENSE.md](LICENSE.md) and many thanks to [Figure Eight](https://www.figure-eight.com/) for the datasets and more information about its licensing can be find [here](https://web.archive.org/web/20200313080346/https://www.figure-eight.com/datasets/).
 
 ## Outro
 
